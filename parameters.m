@@ -1,0 +1,12 @@
+vf_0=100; %km/h - Initial Velocity
+m=1500; %kg - Curb Weight
+rR=0.3; %m - Wheel Radius
+JR=0.8; %kgm^2 - Mass Moment of Inertia
+A=2; %m^2 - Cross-Sectional Area
+Cw=0.3; % - Drag Coefficient
+rho=1.2; %kg/m^3 - Density of Air
+g=9.81; %m/s^2 - Gravitational Acceleration
+c1=0.86; % - Frictional Coefficient
+c2=33.82;% - Frictional Coefficient
+c3=0.36; % - Frictional Coefficient
+MB=5355; %Nm - Braking Torque
