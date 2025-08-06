@@ -9,4 +9,4 @@ g=9.81; %m/s^2 - Gravitational Acceleration
 c1=0.86; % - Frictional Coefficient
 c2=33.82;% - Frictional Coefficient
 c3=0.36; % - Frictional Coefficient
-MB=5355; %Nm - Braking Torque
+BT_max=5355; %Nm - Braking Torque
