@@ -1,3 +1,4 @@
+run("parameters.m")
 sim("Plant_Model.slx")
 time=ans.pedal.time;
 p=ans.pedal.signals.values;
