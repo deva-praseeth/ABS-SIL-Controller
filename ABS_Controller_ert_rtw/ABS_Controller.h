@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ABS_Controller'.
  *
- * Model version                  : 1.21
+ * Model version                  : 1.23
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Sun Aug 10 16:53:46 2025
+ * C/C++ source code generated on : Sun Aug 10 18:40:27 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -38,7 +38,6 @@
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  uint16_T temporalCounter_i1;         /* '<Root>/Controller Logic' */
   uint8_T is_active_c3_ABS_Controller; /* '<Root>/Controller Logic' */
   uint8_T is_c3_ABS_Controller;        /* '<Root>/Controller Logic' */
 } DW_ABS_Controller_T;

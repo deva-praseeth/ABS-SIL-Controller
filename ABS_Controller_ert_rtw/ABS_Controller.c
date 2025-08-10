@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ABS_Controller'.
  *
- * Model version                  : 1.21
+ * Model version                  : 1.23
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Sun Aug 10 16:53:46 2025
+ * C/C++ source code generated on : Sun Aug 10 18:40:27 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -49,13 +49,8 @@ void ABS_Controller_output(void)
    *  Inport: '<Root>/slip'
    *  Inport: '<Root>/vF'
    */
-  if (ABS_Controller_DW.temporalCounter_i1 < 16383) {
-    ABS_Controller_DW.temporalCounter_i1++;
-  }
-
   if (ABS_Controller_DW.is_active_c3_ABS_Controller == 0) {
     ABS_Controller_DW.is_active_c3_ABS_Controller = 1U;
-    ABS_Controller_DW.temporalCounter_i1 = 0U;
     ABS_Controller_DW.is_c3_ABS_Controller = ABS_Controller_IN_No_Braking;
   } else {
     switch (ABS_Controller_DW.is_c3_ABS_Controller) {
@@ -64,7 +59,6 @@ void ABS_Controller_output(void)
            0.13)) {
         ABS_Controller_DW.is_c3_ABS_Controller = ABS_Controller_IN_Braking;
       } else if (ABS_Controller_U.DriverInput == 0.0) {
-        ABS_Controller_DW.temporalCounter_i1 = 0U;
         ABS_Controller_DW.is_c3_ABS_Controller = ABS_Controller_IN_No_Braking;
       } else {
         /* Outport: '<Root>/Braking Torque' */
@@ -80,7 +74,6 @@ void ABS_Controller_output(void)
         /* Outport: '<Root>/Braking Torque' */
         ABS_Controller_Y.BrakingTorque = 5355.0;
       } else if (ABS_Controller_U.DriverInput == 0.0) {
-        ABS_Controller_DW.temporalCounter_i1 = 0U;
         ABS_Controller_DW.is_c3_ABS_Controller = ABS_Controller_IN_No_Braking;
       } else if (ABS_Controller_U.vF <= 1.786) {
         ABS_Controller_DW.is_c3_ABS_Controller = ABS_Controller_IN_Low_Torque;
@@ -95,7 +88,6 @@ void ABS_Controller_output(void)
 
      case ABS_Controller_IN_Low_Torque:
       if (ABS_Controller_U.DriverInput == 0.0) {
-        ABS_Controller_DW.temporalCounter_i1 = 0U;
         ABS_Controller_DW.is_c3_ABS_Controller = ABS_Controller_IN_No_Braking;
       } else {
         /* Outport: '<Root>/Braking Torque' */
@@ -106,8 +98,7 @@ void ABS_Controller_output(void)
 
      default:
       /* case IN_No_Braking: */
-      if ((ABS_Controller_DW.temporalCounter_i1 >= 10000) &&
-          (ABS_Controller_U.DriverInput == 1.0)) {
+      if (ABS_Controller_U.DriverInput == 1.0) {
         ABS_Controller_DW.is_c3_ABS_Controller = ABS_Controller_IN_Braking;
       } else {
         /* Outport: '<Root>/Braking Torque' */

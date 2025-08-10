@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ABS_Controller'.
  *
- * Model version                  : 1.21
+ * Model version                  : 1.23
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Sun Aug 10 16:55:42 2025
+ * C/C++ source code generated on : Sun Aug 10 18:53:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -35,13 +35,8 @@ void ABS_Controller(const real_T *rtu_slip, const real_T *rtu_vF, const real_T
                     DW_ABS_Controller_f_T *localDW)
 {
   /* Chart: '<Root>/Controller Logic' */
-  if (localDW->temporalCounter_i1 < 16383) {
-    localDW->temporalCounter_i1++;
-  }
-
   if (localDW->is_active_c3_ABS_Controller == 0) {
     localDW->is_active_c3_ABS_Controller = 1U;
-    localDW->temporalCounter_i1 = 0U;
     localDW->is_c3_ABS_Controller = ABS_Controller_IN_No_Braking;
   } else {
     switch (localDW->is_c3_ABS_Controller) {
@@ -49,7 +44,6 @@ void ABS_Controller(const real_T *rtu_slip, const real_T *rtu_vF, const real_T
       if ((*rtu_DriverInput == 1.0) && (*rtu_slip <= 0.13)) {
         localDW->is_c3_ABS_Controller = ABS_Controller_IN_Braking;
       } else if (*rtu_DriverInput == 0.0) {
-        localDW->temporalCounter_i1 = 0U;
         localDW->is_c3_ABS_Controller = ABS_Controller_IN_No_Braking;
       } else {
         *rty_BrakingTorque = 0.0;
@@ -61,7 +55,6 @@ void ABS_Controller(const real_T *rtu_slip, const real_T *rtu_vF, const real_T
         localDW->is_c3_ABS_Controller = ABS_Controller_IN_ABS_ON;
         *rty_BrakingTorque = 5355.0;
       } else if (*rtu_DriverInput == 0.0) {
-        localDW->temporalCounter_i1 = 0U;
         localDW->is_c3_ABS_Controller = ABS_Controller_IN_No_Braking;
       } else if (*rtu_vF <= 1.786) {
         localDW->is_c3_ABS_Controller = ABS_Controller_IN_Low_Torque;
@@ -73,7 +66,6 @@ void ABS_Controller(const real_T *rtu_slip, const real_T *rtu_vF, const real_T
 
      case ABS_Controller_IN_Low_Torque:
       if (*rtu_DriverInput == 0.0) {
-        localDW->temporalCounter_i1 = 0U;
         localDW->is_c3_ABS_Controller = ABS_Controller_IN_No_Braking;
       } else {
         *rty_BrakingTorque = fmin(*rty_BrakingTorque - ABS_Controller_step_size,
@@ -83,7 +75,7 @@ void ABS_Controller(const real_T *rtu_slip, const real_T *rtu_vF, const real_T
 
      default:
       /* case IN_No_Braking: */
-      if ((localDW->temporalCounter_i1 >= 10000) && (*rtu_DriverInput == 1.0)) {
+      if (*rtu_DriverInput == 1.0) {
         localDW->is_c3_ABS_Controller = ABS_Controller_IN_Braking;
       } else {
         *rty_BrakingTorque = 0.0;

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ABS_Controller'.
  *
- * Model version                  : 1.21
+ * Model version                  : 1.23
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Sun Aug 10 16:55:42 2025
+ * C/C++ source code generated on : Sun Aug 10 18:53:08 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
