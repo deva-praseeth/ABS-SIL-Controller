@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ABS_Controller'.
  *
- * Model version                  : 1.23
+ * Model version                  : 1.24
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Sun Aug 10 18:53:08 2025
+ * C/C++ source code generated on : Tue Aug 12 13:26:19 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -53,7 +53,6 @@ void ABS_Controller(const real_T *rtu_slip, const real_T *rtu_vF, const real_T
      case ABS_Controller_IN_Braking:
       if ((*rtu_DriverInput == 1.0) && (*rtu_slip > 0.13)) {
         localDW->is_c3_ABS_Controller = ABS_Controller_IN_ABS_ON;
-        *rty_BrakingTorque = 5355.0;
       } else if (*rtu_DriverInput == 0.0) {
         localDW->is_c3_ABS_Controller = ABS_Controller_IN_No_Braking;
       } else if (*rtu_vF <= 1.786) {
