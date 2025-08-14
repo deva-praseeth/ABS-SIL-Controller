@@ -14,8 +14,6 @@ _Model-Based Design of an Anti-lock Braking System (ABS) – Software-in-the-Loo
 - [Phase 2: Code Generation & SIL](#phase-2-code-generation--sil)
 - [Next Steps](#next-steps)
 - [Getting Started](#getting-started)
-- [Project Files Overview](#project-files-overview)
-- [Contributors](#contributors)
 
 ---
 
