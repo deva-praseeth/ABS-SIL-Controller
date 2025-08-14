@@ -75,14 +75,9 @@ It includes:
 
 ---
 
-## 🚀 Workflow Diagram
-![ABS SIL Workflow](abs_sil_workflow.svg)
-
----
-
 ## 🚀 Next Steps
-- Develop `main.c` for communication  
-- Add TCP/IP interface between controller and plant model  
+- Develop `main.c` for virtual communication  
+- Add virtual communication interface between controller and plant model  
 
 ---
 
